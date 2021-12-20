@@ -1,0 +1,23 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "test mode",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "JaxaAnvarov",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaxaAnvarov/NodeJS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JaxaAnvarov/NodeJS/issues"
+  },
+  "homepage": "https://github.com/JaxaAnvarov/NodeJS#readme"
+}
