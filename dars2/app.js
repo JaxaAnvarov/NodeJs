@@ -1,6 +1,13 @@
 const express = require('express');
 const morgan = require('morgan');
 
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://127.0.0.1:27017/users');
+
+var db = mongoose.connection;
+
+
+
 const users = require('./routes/user_routes');
 const home = require('./routes/home_routes');
 

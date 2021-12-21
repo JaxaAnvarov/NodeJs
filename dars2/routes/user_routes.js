@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+const User = require('../schema/user_schema');
+
 var  users = [
     {
         "name" : "A",
@@ -18,21 +20,19 @@ var  users = [
     
 ];
 
-router.get('/', (req, res) => {
-    console.log(req.params.id);
-    res.json(users);
-    res.end();
+router.get('/', async (req, res) => {
+    var data = await User.find();
+    res.send(data); 
 });
 
-router.post('/', (req, res) => {
-    const newUser = {
-        name : req.body.name,
-        age :req.body.age
-    }
-
-    users.push(newUser);
-    res.json(newUser);
-    res.end();
+router.post('/', async(req, res) => {
+    var data = await User.create(
+        {
+            f_name : req.body.f_name,
+            password : req.body.password
+        },
+    );
+    res.json(data);
 });
 
 

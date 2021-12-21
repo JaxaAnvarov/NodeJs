@@ -6,12 +6,16 @@ app.use(express.json());
 
 var userlar = [
     {
-        'name': 'A',
-        'token': 'ksnglknfsd2lk2n',
+        'name': 'Jahongir',
+        'age': '19',
     },
     {
-        'name': 'B',
-        'token': 'efsdfg78dsgsdfg',
+        'name': 'Abdujalil',
+        'age': '25',
+    },
+    {
+        'name' : 'Ramazon',
+        'age' : '24'
     }
 ];
 
@@ -20,17 +24,21 @@ app.get('/', ((req, res) => {
     res.end();
 }));
 
-app.get('/users/:id', (req, res) => {
-    console.log(req.params);
+// app.get('/users', (req, res) => {
+//     console.log(req.params);
 
-    const topilganUser = userlar.find(user => user.id === parseInt(req.params.id));
-    if (topilganUser) {
-        res.json(topilganUser);
-    } else {
-        res.status(404).send("Page Not Found");
-    }
-    res.end();
-});
+//     const topilganUser = userlar.find(user => user.id === parseInt(req.params));
+//     if (topilganUser) {
+//         res.json(topilganUser);
+//     } else {
+//         res.status(404).send("Page Not Found");
+//     }
+//     res.end();
+// });
+
+app.get('/users', (req, res) => {
+    res.send(userlar);
+})
 
 app.post('/users', (req, res) => {
     const newUser = {
@@ -42,4 +50,4 @@ app.post('/users', (req, res) => {
     res.end();
 });
 
-app.listen(9090);
+app.listen(1111);
