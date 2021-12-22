@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class LoginPage extends StatelessWidget {
-   LoginPage({Key? key}) : super(key: key);
+  LoginPage({Key? key}) : super(key: key);
 
   TextEditingController _nameController = TextEditingController();
-  TextEditingController _passController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 TextFormField(
-                  controller: _passController,
+                  controller: _passwordController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20.0),
@@ -58,18 +58,17 @@ class LoginPage extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         primary: Colors.indigo,
                       ),
-                      onPressed: () async {
+                      onPressed: () async{
                         await Dio().post(
-                          'http://localhost:3000/users',
+                          "http://10.0.2.2:3000/users",
                           data: {
-                            "name": _nameController.text,
-                            "passwors": _passController.text
+                            "f_name": _nameController.text,
+                            "password": _passwordController.text,
                           },
                         );
                         _nameController.clear();
-                        _passController.clear();
+                        _passwordController.clear();
                       },
-                      
                       child: const Text('Sing Up'),
                     ),
                     ElevatedButton(
